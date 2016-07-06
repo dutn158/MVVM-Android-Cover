@@ -1,0 +1,53 @@
+ext {
+    supportVersion = '23.4.0'
+    retrofitVersion = '2.0.1'
+    rxAndroidVersion = '1.0.1'
+    glideVersion = '3.6.1'
+
+    junitVersion = '4.12'
+    mockitoVersion = '1.10.19'
+    robolectricVersion = '3.0'
+
+    supportPackage = 'com.android.support'
+    retrofitPackage = 'com.squareup.retrofit2'
+    reactivePackage = 'io.reactivex'
+    glidePackage = 'com.github.bumptech.glide'
+
+    junitPackage = 'junit'
+    mockitoPackage = 'org.mockito'
+    robolectricPackage = 'org.robolectric'
+
+    supportDependencies = [
+            design              :buildDependency(supportPackage, 'design', supportVersion),
+            recyclerView        :buildDependency(supportPackage, 'recyclerview-v7', supportVersion),
+            cardView            :buildDependency(supportPackage, 'cardview-v7', supportVersion),
+            appCompat           :buildDependency(supportPackage, 'appcompat-v7', supportVersion),
+            supportAnnotation   :buildDependency(supportPackage, 'support-annotations', supportVersion),
+            palette             :buildDependency(supportPackage, 'palette-v7', supportVersion),
+            percent             :buildDependency(supportPackage, 'percent', supportVersion)
+    ]
+
+    retrofitDependencies = [
+            retrofit            :buildDependency(retrofitPackage, 'retrofit', retrofitVersion),
+            gson                :buildDependency(retrofitPackage, 'converter-gson', retrofitVersion),
+            rxAdapterJava       :buildDependency(retrofitPackage, 'adapter-rxjava', retrofitVersion)
+    ]
+
+    rxDependencies = [
+            rxAndroid           :buildDependency(reactivePackage, 'rxandroid', rxAndroidVersion)
+    ]
+
+    glide = buildDependency(glidePackage, 'glide', glideVersion)
+
+    testingDependencies = [
+            junit      : buildDependency(junitPackage, 'junit', junitVersion),
+            mockito    : buildDependency(mockitoPackage, 'mockito-core', mockitoVersion),
+            robolectric: buildDependency(robolectricPackage, 'robolectric', robolectricVersion),
+
+    ]
+
+}
+
+String buildDependency (String pack, String dependency, String version) {
+    return "${pack}:${dependency}:${version}"
+}
